@@ -1,0 +1,33 @@
+{
+  "name": "@openclaw/discord-voice",
+  "version": "2026.3.14",
+  "description": "OpenClaw Discord Voice channel plugin",
+  "type": "module",
+  "dependencies": {
+    "@discordjs/voice": "^0.19.2",
+    "ws": "^8.18.3"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "channel": {
+      "id": "discord-voice",
+      "label": "Discord Voice",
+      "selectionLabel": "Discord (Voice)",
+      "detailLabel": "Discord Voice Agent",
+      "docsPath": "/channels/discord",
+      "docsLabel": "discord",
+      "blurb": "real-time voice channel conversations with streaming STT/TTS.",
+      "systemImage": "waveform"
+    },
+    "install": {
+      "npmSpec": "@openclaw/discord-voice",
+      "localPath": "extensions/discord-voice",
+      "defaultChoice": "npm"
+    },
+    "bundle": {
+      "stageRuntimeDependencies": true
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "discord-voice",
+  "channels": ["discord-voice"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": { "type": "boolean" },
+      "agentId": { "type": "string" },
+      "provider": { "type": "string" },
+      "providers": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "baseUrl": { "type": "string" },
+            "apiKey": { "type": "string" },
+            "sttModel": { "type": "string" },
+            "ttsModel": { "type": "string" },
+            "voice": { "type": "string" },
+            "stt": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "baseUrl": { "type": "string" },
+                "realtimeUrl": { "type": "string" },
+                "apiKey": { "type": "string" },
+                "model": { "type": "string" },
+                "language": { "type": "string" }
+              }
+            },
+            "tts": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "baseUrl": { "type": "string" },
+                "apiKey": { "type": "string" },
+                "model": { "type": "string" },
+                "voice": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "openai": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "baseUrl": { "type": "string" },
+          "apiKey": { "type": "string" },
+          "sttModel": { "type": "string" },
+          "ttsModel": { "type": "string" },
+          "voice": { "type": "string" }
+        }
+      },
+      "stt": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "baseUrl": { "type": "string" },
+          "realtimeUrl": { "type": "string" },
+          "apiKey": { "type": "string" },
+          "model": { "type": "string" },
+          "language": { "type": "string" },
+          "fallbackToFileTranscribe": { "type": "boolean" },
+          "vadSilenceMs": { "type": "number" },
+          "vadThreshold": { "type": "number" }
+        }
+      },
+      "tts": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "baseUrl": { "type": "string" },
+          "apiKey": { "type": "string" },
+          "model": { "type": "string" },
+          "voice": { "type": "string" },
+          "format": { "type": "string", "enum": ["pcm", "opus", "mp3"] },
+          "speed": { "type": "number" },
+          "fallbackToBufferedTts": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}
