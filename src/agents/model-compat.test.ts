@@ -352,7 +352,8 @@ describe("isModernModelRef", () => {
         ? true
         : provider === "openai-codex" && context.modelId === "gpt-5.4"
           ? true
-          : provider === "opencode" && ["claude-opus-4-6", "gemini-3-pro"].includes(context.modelId)
+          : provider === "opencode" &&
+              ["claude-opus-4-6", "gemini-3-pro", "minimax-m2.7"].includes(context.modelId)
             ? true
             : provider === "opencode-go"
               ? true
@@ -366,6 +367,7 @@ describe("isModernModelRef", () => {
     expect(isModernModelRef({ provider: "openai-codex", id: "gpt-5.4" })).toBe(true);
     expect(isModernModelRef({ provider: "opencode", id: "claude-opus-4-6" })).toBe(true);
     expect(isModernModelRef({ provider: "opencode", id: "gemini-3-pro" })).toBe(true);
+    expect(isModernModelRef({ provider: "opencode", id: "minimax-m2.7" })).toBe(true);
     expect(isModernModelRef({ provider: "opencode-go", id: "kimi-k2.5" })).toBe(true);
     expect(isModernModelRef({ provider: "opencode-go", id: "glm-5" })).toBe(true);
     expect(isModernModelRef({ provider: "opencode-go", id: "minimax-m2.7" })).toBe(true);

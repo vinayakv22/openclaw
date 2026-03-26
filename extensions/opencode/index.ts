@@ -13,7 +13,13 @@ function isModernOpencodeModel(modelId: string): boolean {
   if (lower.endsWith("-free") || lower === "alpha-glm-4.7") {
     return false;
   }
-  return !isMiniMaxModernModelId(lower);
+  if (isMiniMaxModernModelId(lower)) {
+    return true;
+  }
+  if (lower.startsWith("minimax-")) {
+    return false;
+  }
+  return true;
 }
 
 export default definePluginEntry({

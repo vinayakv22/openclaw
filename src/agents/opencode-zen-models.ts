@@ -77,6 +77,9 @@ export const OPENCODE_ZEN_MODEL_ALIASES: Record<string, string> = {
   // GLM (free)
   glm: "glm-4.7",
   "glm-free": "glm-4.7",
+
+  // MiniMax
+  minimax: "minimax-m2.7",
 };
 
 /**
@@ -145,6 +148,7 @@ const MODEL_COSTS: Record<
     cacheWrite: 0,
   },
   "gpt-5.2": { input: 1.75, output: 14, cacheRead: 0.175, cacheWrite: 0 },
+  "minimax-m2.7": { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
 };
 
 const DEFAULT_COST = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 };
@@ -160,6 +164,7 @@ const MODEL_CONTEXT_WINDOWS: Record<string, number> = {
   "gemini-3-flash": 1048576,
   "gpt-5.1-codex-max": 400000,
   "gpt-5.2": 400000,
+  "minimax-m2.7": 128000,
 };
 
 function getDefaultContextWindow(modelId: string): number {
@@ -177,6 +182,7 @@ const MODEL_MAX_TOKENS: Record<string, number> = {
   "gemini-3-flash": 65536,
   "gpt-5.1-codex-max": 128000,
   "gpt-5.2": 128000,
+  "minimax-m2.7": 128000,
 };
 
 function getDefaultMaxTokens(modelId: string): number {
@@ -214,6 +220,7 @@ const MODEL_NAMES: Record<string, string> = {
   "gemini-3-flash": "Gemini 3 Flash",
   "gpt-5.1-codex-max": "GPT-5.1 Codex Max",
   "gpt-5.2": "GPT-5.2",
+  "minimax-m2.7": "MiniMax M2.7",
 };
 
 function formatModelName(modelId: string): string {
@@ -242,6 +249,7 @@ export function getOpencodeZenStaticFallbackModels(): ModelDefinitionConfig[] {
     "gemini-3-flash",
     "gpt-5.1-codex-max",
     "gpt-5.2",
+    "minimax-m2.7",
   ];
 
   return modelIds.map(buildModelDefinition);
